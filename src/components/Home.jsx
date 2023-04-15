@@ -9,7 +9,7 @@ export class Home extends Component {
         <div className="m-4">
           <h2>Prof. Priti Kumar Roy</h2>
           <div className="d-flex flex-row mt-4">
-            <img src="http://www.jaduniv.edu.in/upload_files/profile_images/829.JPG" alt="" style={{height: 200, width: 230}} />
+            <img src="/profile.jpeg" alt="" style={{height: 200, width: 230}} />
             <div className='m-3 d-flex flex-column justify-content-center'>
               <p style={{margin: 0}}>Professor</p>
               <p style={{margin: 0}}>Department of Mathematics</p>
