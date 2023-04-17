@@ -5,7 +5,10 @@ export class Courses extends Component {
   render() {
     return (
       <div>
-        <Heading title="Courses" />
+        <Heading title="Awards" />
+          <div className="m-5">
+            
+          </div>
       </div>
     )
   }
