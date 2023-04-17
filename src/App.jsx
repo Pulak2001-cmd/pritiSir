@@ -7,6 +7,7 @@ import Publications from './components/Publications';
 import People from './components/People';
 import Courses from './components/Courses';
 import Students from './components/Students';
+import Books from './components/Books';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/people" element={<People />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/students" element={<Students />} />
+          <Route path="/books" element={<Books />} />
         </Routes>
       </div>
     </div>

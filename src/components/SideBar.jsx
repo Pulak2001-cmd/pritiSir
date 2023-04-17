@@ -23,6 +23,7 @@ function SideBar() {
             <Link className="nav-link" onClick={()=> setCurrPage('people')} to="/people"><li style={{borderBottom: '0.5px solid #ccc', padding: 5, cursor: 'pointer', fontWeight: `${currPage === 'people' ? 'bold':'normal'}`}}>Project</li></Link>
             <Link className="nav-link" onClick={()=> setCurrPage('courses')} to="/courses"><li style={{borderBottom: '0.5px solid #ccc', padding: 5, cursor: 'pointer', fontWeight: `${currPage === 'courses' ? 'bold':'normal'}`}}>Awards</li></Link>
             <Link className="nav-link" onClick={()=> setCurrPage('students')} to="/students"><li style={{borderBottom: '0.5px solid #ccc', padding: 5, cursor: 'pointer', fontWeight: `${currPage === 'students' ? 'bold':'normal'}`}}>Prospective Students</li></Link>
+            <Link className="nav-link" onClick={()=> setCurrPage('books')} to="/books"><li style={{borderBottom: '0.5px solid #ccc', padding: 5, cursor: 'pointer', fontWeight: `${currPage === 'books' ? 'bold':'normal'}`}}>Books Published</li></Link>
         </ul>
       </div>
   )

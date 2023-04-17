@@ -8,6 +8,7 @@ export class Publications extends Component {
     super(props);
     this.state = {
       publications: [],
+      start: 0
     }
   }
   async componentDidMount() {
@@ -25,7 +26,10 @@ export class Publications extends Component {
               <div className="spinner"></div>
             </div>
           )}
-          {this.state.publications.length !== 0 && <table className="table table-borderless">
+          {this.state.publications.length !== 0 && (
+          <div>
+          <h4>Publications</h4>
+          <table className="table table-borderless">
             <thead>
               <tr>
                 <th scope="col">Authors</th>
@@ -44,7 +48,8 @@ export class Publications extends Component {
                 </tr>
               ))}
             </tbody>
-          </table>}
+          </table>
+          </div>)}
         </div>
       </div>
     )
