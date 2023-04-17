@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import './SideBar.css'
 
 function SideBar() {
   let path = useLocation().pathname;
@@ -11,7 +12,7 @@ function SideBar() {
   }
   const [currPage, setCurrPage] = React.useState(path);
   return (
-    <div className="d-flex flex-column bg-dark p-3" style={{minHeight: '100vh'}}>
+    <div className="d-flex flex-column bg-dark p-3 sidebar">
         <div className="d-flex flex-column align-items-center">
         <img src="https://static.wixstatic.com/media/485cee_46bfcf61e1fe4cc78cf03373aaef256a~mv2.gif" alt="" style={{height: 200, width: 200}} />
         <p style={{color: '#fff'}}>Jadavpur University</p>

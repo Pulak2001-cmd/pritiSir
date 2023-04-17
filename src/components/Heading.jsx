@@ -7,8 +7,8 @@ export class Heading extends Component {
   render() {
     return (
       <div className="bg-secondary d-flex flex-column p-4" style={{minWidth: '80vw', color: '#fff'}}>
-        <h3>Prof. Priti Kumar Roy</h3>
-        <p style={{fontSize: 15}}>{this.props.title}</p>
+        <h2>Prof. Priti Kumar Roy</h2>
+        <p style={{fontSize: 15, fontWeight: 'bold'}}>{this.props.title}</p>
       </div>
     )
   }

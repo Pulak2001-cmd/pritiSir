@@ -20,7 +20,7 @@ export class Publications extends Component {
     return (
       <div>
         <Heading title="Publications" />
-        <div className="m-5 d-flex flex-column">
+        <div className="m-lg-5 m-2 d-flex flex-column">
           {this.state.publications.length === 0 && (
             <div className="loader-container">
               <div className="spinner"></div>
