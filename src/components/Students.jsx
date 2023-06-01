@@ -48,7 +48,7 @@ export class Students extends Component {
             <thead>
               <tr>
                 <th scope="col">Student</th>
-                <th scope="col">Title of Thesis</th>
+                <th scope="col">{this.state.type === 'phd' ? 'Title of Thesis':'Title of Project'}</th>
               </tr>
             </thead>
             <tbody>
