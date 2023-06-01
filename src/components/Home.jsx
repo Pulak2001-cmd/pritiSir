@@ -9,7 +9,7 @@ export class Home extends Component {
         <div className="m-4">
           <h2>Prof. Priti Kumar Roy</h2>
           <div className="d-flex flex-row mt-4">
-            <img src="/photo.jpg" alt="" style={{height: 230, width: 210}} />
+            <img src="/profile.jpg" alt="" style={{height: 230, width: 230}} />
             <div className='m-3 d-flex flex-column justify-content-center'>
               <p style={{margin: 0}}>Professor</p>
               <p style={{margin: 0}}>Department of Mathematics</p>
@@ -22,12 +22,15 @@ export class Home extends Component {
           <div className="mt-5">
             <h2>Professional Experience</h2>
             <ul>
+              
               <li className="m-1">Lecturer in Mathematics from 2001 to 2006 in Darjeeling Govt. College Darjeeling, W.B., India</li>
               <li className="m-1">Senior Lecturer in Mathematics from 2006 to 2009 in Barasat Govt. College, Barasat, Kolkata-700124, W.B., India</li>
               <li className="m-1">Reader from 2009 to 2012 in Jadavpur University, Jadavpur, Kolkata-700032, West Bengal, India</li>
               <li className="m-1">Associate Professor from 2012 to 2015 in Jadavpur University, Jadavpur, Kolkata-700032, West Bengal, India</li>
               <li className="m-1">Professor from 2015 to till now in Jadavpur University, Jadavpur, Kolkata-700032, West Bengal, India</li>
             </ul>
+
+
           </div>
         </div>
       </div>
