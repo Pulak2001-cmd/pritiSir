@@ -56,7 +56,7 @@ export class Students extends Component {
                 <tr key={index}>
                   <td>{i.Name}</td>
                   <td>{i.Thesis}</td>
-                  <td>{i.Project}</td>
+            
                 </tr>
               ))}
             </tbody>
