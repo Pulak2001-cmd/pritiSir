@@ -16,7 +16,7 @@ export class Home extends Component {
               <p style={{margin: 0}}>Jadavpur University</p>
               <p style={{margin: 0}}>Kolkata-70032</p>
               <p style={{margin: 0}}>West Bengal, India</p>
-              <p style={{margin: 0}}> <a href="https://www.sciencedirect.com/journal/mathematical-biosciences"> Editorial Board Members: MathematicalBiosciences </a> </p>
+              <p style={{margin: 0}}> <a href="https://www.sciencedirect.com/journal/mathematical-biosciences"> Editorial Board Members: Mathematical Biosciences </a> </p>
               <p style={{margin: 0}}> <a href="mailto:pritiju@gmail.com"> pritiju@gmail.com</a> </p>
             </div>
           </div>
