@@ -6,11 +6,47 @@ export class Home extends Component {
     return (
       <div>
         <Heading title="Home"/>
+        <!DOCTYPE html>
+<html>
+<head>
+  <title>My Personal Webpage</title>
+  <style>
+    /* Add your custom CSS styles here */
+    /* For example, you can style the event display area */
+    #event-display {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Personal Webpage</h1>
+  <p>Current Event:</p>
+  <div id="event-display">No event scheduled</div>
+
+  <button onclick="changeEvent()">Change Event</button>
+
+  <script>
+    function changeEvent() {
+      // Use a JavaScript prompt to get the event input from the user
+      const newEvent = prompt("Enter the new event for this month:");
+      
+      // Update the event display area with the new event
+      const eventDisplay = document.getElementById("event-display");
+      eventDisplay.innerText = newEvent;
+    }
+  </script>
+</body>
+</html>
+
+        
         <div className="m-4">
           <h2>Prof. Priti Kumar Roy</h2>
           <div className="d-flex flex-row mt-4">
             <img src="/photo.jpg" alt="" style={{height: 230, width: 210}} />
             <div className='m-3 d-flex flex-column justify-content-center'>
+              
               <p style={{margin: 0}}>Professor</p>
               <p style={{margin: 0}}>Department of Mathematics</p>
               <p style={{margin: 0}}>Jadavpur University</p>
