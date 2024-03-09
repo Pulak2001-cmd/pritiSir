@@ -1,0 +1,23 @@
+.announcement-section {
+  margin-top: 20px;
+}
+
+.event {
+  margin-bottom: 10px;
+}
+
+.blink {
+  animation: blink-animation 1s infinite;
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
