@@ -36,8 +36,27 @@ export class Home extends Component {
           </div>
         </div>
       </div>
-    )
+      <AnnouncementSection />
+      </div>
+    );
   }
 }
 
-export default Home
+class AnnouncementSection extends Component {
+  render() {
+    return (
+      <div className="announcement-section">
+        <h2>Upcoming Events</h2>
+        <div className="event">
+          <span className="blink">Event 1: Lorem ipsum dolor sit amet</span>
+        </div>
+        <div className="event">
+          <span className="blink">Event 2: Consectetur adipiscing elit</span>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Home;
+ 
