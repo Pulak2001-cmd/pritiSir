@@ -1,5 +1,6 @@
-nimport React, { Component } from 'react';
+import React, { Component } from 'react';
 import Heading from './Heading';
+import './Home.css'; 
 
 export class Home extends Component {
   render() {
@@ -59,7 +60,7 @@ class AnnouncementSection extends Component {
           <span className="blink">Event 2: Consectetur adipiscing elit</span>
         </div>
 
-        {/* 🔔 New Animated Highlighted Event */}
+        {/* 🔔 Highlighted Scrolling Announcement */}
         <div className="highlighted-announcement">
           Upcoming Collaborative Research Visit at <strong>Beijing Technology and Business University (BTBU), China</strong> from <strong>18th May 2025</strong> to <strong>14th June 2025</strong>
         </div>
