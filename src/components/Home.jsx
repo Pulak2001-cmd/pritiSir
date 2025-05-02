@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+nimport React, { Component } from 'react';
 import Heading from './Heading';
 
 export class Home extends Component {
@@ -61,7 +61,7 @@ class AnnouncementSection extends Component {
 
         {/* 🔔 New Animated Highlighted Event */}
         <div className="highlighted-announcement">
-          Upcoming Collaborative Research Visit at <strong>BTBU, China</strong> from <strong>18th May 2025</strong> to <strong>14th June 2025</strong>
+          Upcoming Collaborative Research Visit at <strong>Beijing Technology and Business University (BTBU), China</strong> from <strong>18th May 2025</strong> to <strong>14th June 2025</strong>
         </div>
       </div>
     );
