@@ -17,19 +17,16 @@
 }
 
 @keyframes blink-animation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/* 🎯 NEW: Highlighted animated announcement for research visit */
 .highlighted-announcement {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
   margin-top: 20px;
   padding: 12px 20px;
   background: linear-gradient(to right, #ffecd2, #fcb69f);
@@ -37,17 +34,11 @@
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
-  animation: slidein 15s linear infinite;
-  white-space: nowrap;
-  overflow: hidden;
   color: #222;
+  animation: slidein 15s linear infinite;
 }
 
 @keyframes slidein {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
