@@ -53,11 +53,11 @@ class AnnouncementSection extends Component {
         <h2>Upcoming Events</h2>
 
         <div className="event">
-          <span className="blink">Event 1: National Conference on Applied Mathematics</span>
+          <span className="blink">Event 1: </span>
         </div>
 
         <div className="event">
-          <span className="blink">Event 2: Guest Lecture at IIT Kharagpur</span>
+          <span className="blink">Event 2: </span>
         </div>
 
         {/* 🔔 Highlighted Scrolling Announcement */}
