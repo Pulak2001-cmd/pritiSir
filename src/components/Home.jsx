@@ -61,11 +61,16 @@ class AnnouncementSection extends Component {
         </div>
 
         {/* 🔔 Highlighted Scrolling Announcement */}
-        <div className="highlighted-announcement">
+<div className="highlighted-announcement">
   <div className="scrolling-text">
-    Upcoming Collaborative Research Visit at <a href="https://english.btbu.edu.cn/" target="_blank" rel="noopener noreferrer"><strong>Beijing Technology and Business University (BTBU), China</strong></a> from <strong>18th May 2025</strong> to <strong>14th June 2025</strong>
+    Upcoming Collaborative Research Visit at&nbsp;
+    <a href="https://english.btbu.edu.cn/" target="_blank" rel="noopener noreferrer">
+      <strong>Beijing Technology and Business University (BTBU), China</strong>
+    </a>&nbsp;
+    from <strong>18th May 2025</strong> to <strong>14th June 2025</strong>
   </div>
 </div>
+
 
     
     );
