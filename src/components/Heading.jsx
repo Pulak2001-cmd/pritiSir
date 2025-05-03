@@ -1,17 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react';
+import './Heading.css';
 
-export class Heading extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div className="bg-secondary d-flex flex-column p-4" style={{minWidth: '80vw', color: '#fff'}}>
-        <h2>Prof. Priti Kumar Roy</h2>
-        <p style={{fontSize: 15, fontWeight: 'bold'}}>{this.props.title}</p>
-      </div>
-    )
-  }
-}
+const Heading = ({ title }) => {
+  return (
+    <div className="custom-heading text-center py-4">
+      <h1>{title}</h1>
+      <p className="subtitle">Prof. Priti Kumar Roy, Jadavpur University</p>
+      <hr />
+    </div>
+  );
+};
 
-export default Heading
+export default Heading;
