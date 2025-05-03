@@ -53,26 +53,23 @@ class AnnouncementSection extends Component {
         <h2>Upcoming Events</h2>
 
         <div className="event">
-          <span className="blink">Event 1: </span>
+          <span className="blink">Event 1: National Conference on Applied Mathematics</span>
         </div>
 
         <div className="event">
-          <span className="blink">Event 2: </span>
+          <span className="blink">Event 2: Guest Lecture at IIT Kharagpur</span>
         </div>
 
         {/* 🔔 Highlighted Scrolling Announcement */}
-<div className="highlighted-announcement">
-  <div className="scrolling-text">
-    Upcoming Collaborative Research Visit at&nbsp;
-    <a href="https://english.btbu.edu.cn/" target="_blank" rel="noopener noreferrer">
-      <strong>Beijing Technology and Business University (BTBU), China</strong>
-    </a>&nbsp;
-    from <strong>18/05/2025</strong> to <strong>14/06/25</strong>
-  </div>
-</div>
-
-
-    
+        <div className="highlighted-announcement">
+          <div className="scrolling-text">
+            Upcoming Collaborative Research Visit at&nbsp;
+            <a href="https://english.btbu.edu.cn/" target="_blank" rel="noopener noreferrer">
+              <strong>Beijing Technology and Business University (BTBU), China</strong>
+            </a>&nbsp;from <strong>18 May 2025</strong> to <strong>14 June 2025</strong>
+          </div>
+        </div>
+      </div>
     );
   }
 }
