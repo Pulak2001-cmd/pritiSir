@@ -67,7 +67,7 @@ class AnnouncementSection extends Component {
     <a href="https://english.btbu.edu.cn/" target="_blank" rel="noopener noreferrer">
       <strong>Beijing Technology and Business University (BTBU), China</strong>
     </a>&nbsp;
-    from <strong>18th May 2025</strong> to <strong>14th June 2025</strong>
+    from <strong>18/05/2025</strong> to <strong>14/06/25</strong>
   </div>
 </div>
 
