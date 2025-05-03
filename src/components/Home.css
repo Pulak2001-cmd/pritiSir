@@ -25,7 +25,6 @@
 .highlighted-announcement {
   position: relative;
   overflow: hidden;
-  white-space: nowrap;
   box-sizing: border-box;
   margin-top: 20px;
   padding: 14px 24px;
@@ -35,7 +34,6 @@
   font-size: 1.15rem;
   font-weight: 600;
   color: #2c2c2c;
-  animation: slidein 18s linear infinite;
   box-shadow: 0 4px 12px rgba(255, 99, 71, 0.2);
   display: flex;
   align-items: center;
@@ -44,9 +42,14 @@
   transition: background 0.3s ease-in-out;
 }
 
-.highlighted-announcement:hover {
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: slidein 18s linear infinite;
+}
+
+.highlighted-announcement:hover .scrolling-text {
   animation-play-state: paused;
-  background: linear-gradient(90deg, #ffdee9, #b5fffc);
 }
 
 .highlighted-announcement::before {
@@ -55,7 +58,13 @@
   margin-right: 10px;
 }
 
+.highlighted-announcement a {
+  color: #2c2c2c;
+  text-decoration: underline;
+}
+
 @keyframes slidein {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
+
