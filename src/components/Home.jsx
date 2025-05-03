@@ -8,34 +8,34 @@ export class Home extends Component {
       <div>
         <Heading title="Home" />
         <div className="m-4">
-          <h2>Prof. Priti Kumar Roy</h2>
-          <div className="d-flex flex-row mt-4">
-            <img src="/photo.jpg" alt="" style={{ height: 230, width: 210 }} />
-            <div className="m-3 d-flex flex-column justify-content-center">
-              <p style={{ margin: 0 }}>Professor</p>
-              <p style={{ margin: 0 }}>Department of Mathematics</p>
-              <p style={{ margin: 0 }}>Jadavpur University</p>
-              <p style={{ margin: 0 }}>Kolkata-70032</p>
-              <p style={{ margin: 0 }}>West Bengal, India</p>
-              <p style={{ margin: 0 }}>
-                <a href="https://www.sciencedirect.com/journal/mathematical-biosciences">
+          {/* Profile Card Section */}
+          <div className="profile-card d-flex flex-column flex-md-row align-items-center p-4 my-4 shadow rounded">
+            <img src="/photo.jpg" alt="Prof. Priti Kumar Roy" className="profile-photo me-md-4 mb-3 mb-md-0" />
+            <div className="profile-info">
+              <h4>Prof. Priti Kumar Roy</h4>
+              <p>Professor, Department of Mathematics</p>
+              <p>Jadavpur University, Kolkata-700032</p>
+              <p>West Bengal, India</p>
+              <p>
+                <a href="mailto:pritiju@gmail.com">pritiju@gmail.com</a>
+              </p>
+              <p>
+                <a href="https://www.sciencedirect.com/journal/mathematical-biosciences" target="_blank" rel="noopener noreferrer">
                   Editorial Board Member: Mathematical Biosciences
                 </a>
-              </p>
-              <p style={{ margin: 0 }}>
-                <a href="mailto:pritiju@gmail.com">pritiju@gmail.com</a>
               </p>
             </div>
           </div>
 
+          {/* Experience Section */}
           <div className="mt-5">
             <h2>Professional Experience</h2>
             <ul>
-              <li className="m-1">Lecturer in Mathematics from 2001 to 2006 in Darjeeling Govt. College Darjeeling, W.B., India</li>
-              <li className="m-1">Senior Lecturer in Mathematics from 2006 to 2009 in Barasat Govt. College, Barasat, Kolkata-700124, W.B., India</li>
-              <li className="m-1">Reader from 2009 to 2012 in Jadavpur University, Jadavpur, Kolkata-700032, West Bengal, India</li>
-              <li className="m-1">Associate Professor from 2012 to 2015 in Jadavpur University, Jadavpur, Kolkata-700032, West Bengal, India</li>
-              <li className="m-1">Professor from 2015 to till now in Jadavpur University, Jadavpur, Kolkata-700032, West Bengal, India</li>
+              <li className="m-1">Lecturer in Mathematics (2001–2006), Darjeeling Govt. College, W.B.</li>
+              <li className="m-1">Senior Lecturer (2006–2009), Barasat Govt. College, Kolkata</li>
+              <li className="m-1">Reader (2009–2012), Jadavpur University</li>
+              <li className="m-1">Associate Professor (2012–2015), Jadavpur University</li>
+              <li className="m-1">Professor (2015–Present), Jadavpur University</li>
             </ul>
           </div>
         </div>
