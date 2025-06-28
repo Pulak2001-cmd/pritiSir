@@ -60,15 +60,15 @@ class AnnouncementSection extends Component {
           <span className="blink">Event 2: </span>
         </div>
 
-        {/* 🔔 Highlighted Scrolling Announcement */}
-        <div className="highlighted-announcement">
-          <div className="scrolling-text">
-            Upcoming Collaborative Research Visit at&nbsp;
-            <a href="https://english.btbu.edu.cn/" target="_blank" rel="noopener noreferrer">
-              <strong>Beijing Technology and Business University (BTBU), China</strong>
-            </a>&nbsp;from <strong>18 May 2025</strong> to <strong>14 June 2025</strong>
-          </div>
-        </div>
+       {/* 🔔 Highlighted Scrolling Announcement */}
+<div className="highlighted-announcement">
+  <div className="scrolling-text">
+    🔔 <strong>Now Inviting Applications</strong>: Interested in hosting a <strong>Post-Doctoral Fellow</strong> in the area of <em>Mathematical Biology and Complex Systems</em>. 
+    If you are a motivated researcher looking for collaborative opportunities, feel free to reach out via email at&nbsp;
+    <a href="mailto:pritiju@gmail.com"><strong>pritiju@gmail.com</strong></a>
+  </div>
+</div>
+
       </div>
     );
   }
