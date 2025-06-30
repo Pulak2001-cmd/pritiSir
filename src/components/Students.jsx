@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import Heading from './Heading'
-import axios from 'axios'
+import React, { Component } from 'react';
+import Heading from './Heading';
+import axios from 'axios';
 import './Publications.css';
 
 export class Students extends Component {
@@ -10,46 +10,36 @@ export class Students extends Component {
       students: [],
       type: 'phd',
       loading: false,
+    };
+  }
+
+  cleanKeys = (obj) =>
+    Object.fromEntries(Object.entries(obj).map(([k, v]) => [k.trim(), v]));
+
+  async fetchStudents(page, type) {
+    this.setState({ type, loading: true, students: [] });
+    const url = `https://script.google.com/macros/s/AKfycbxATDI60mhkONYhLRv9na5ODgA8FVzXDLjkESNKFklD0z_K3RL4g9OTqzAjY2h_rnr4-g/exec?page=${page}`;
+    try {
+      const response = await axios.get(url);
+      const cleanedData = response.data.data.map(this.cleanKeys);
+      this.setState({ students: cleanedData, loading: false });
+    } catch (error) {
+      console.error('Error fetching students:', error);
+      this.setState({ loading: false });
     }
   }
 
-  async componentDidMount() {
-    this.setState({ loading: true });
-    const url = "https://script.google.com/macros/s/AKfycbxATDI60mhkONYhLRv9na5ODgA8FVzXDLjkESNKFklD0z_K3RL4g9OTqzAjY2h_rnr4-g/exec?page=students";
-    const response = await axios.get(url);
-    this.setState({ students: response.data.data, loading: false });
+  componentDidMount() {
+    this.fetchStudents('students', 'phd');
   }
 
-  courseChangeToPhd = async () => {
-    this.setState({ type: 'phd', loading: true, students: [] });
-    const url = "https://script.google.com/macros/s/AKfycbxATDI60mhkONYhLRv9na5ODgA8FVzXDLjkESNKFklD0z_K3RL4g9OTqzAjY2h_rnr4-g/exec?page=students";
-    const response = await axios.get(url);
-    this.setState({ students: response.data.data, loading: false });
-  }
-
-  courseChangeToCurrentPhd = async () => {
-    this.setState({ type: 'current_phd', loading: true, students: [] });
-    const url = "https://script.google.com/macros/s/AKfycbxATDI60mhkONYhLRv9na5ODgA8FVzXDLjkESNKFklD0z_K3RL4g9OTqzAjY2h_rnr4-g/exec?page=Current_phd";
-    const response = await axios.get(url);
-    this.setState({ students: response.data.data, loading: false });
-  }
-
-  courseChangeToMsc = async () => {
-    this.setState({ type: 'msc', loading: true, students: [] });
-    const url = "https://script.google.com/macros/s/AKfycbxATDI60mhkONYhLRv9na5ODgA8FVzXDLjkESNKFklD0z_K3RL4g9OTqzAjY2h_rnr4-g/exec?page=msc";
-    const response = await axios.get(url);
-    this.setState({ students: response.data.data, loading: false });
-  }
-
-  courseChangeToPostDoc = async () => {
-    this.setState({ type: 'post_doc', loading: true, students: [] });
-    const url = "https://script.google.com/macros/s/AKfycbxATDI60mhkONYhLRv9na5ODgA8FVzXDLjkESNKFklD0z_K3RL4g9OTqzAjY2h_rnr4-g/exec?page=Post_doc_fellow";
-    const response = await axios.get(url);
-    this.setState({ students: response.data.data, loading: false });
-  }
+  courseChangeToPhd = () => this.fetchStudents('students', 'phd');
+  courseChangeToCurrentPhd = () => this.fetchStudents('Current_phd', 'current_phd');
+  courseChangeToMsc = () => this.fetchStudents('msc', 'msc');
+  courseChangeToPostDoc = () => this.fetchStudents('post_doc', 'post_doc');
 
   render() {
-    const { type, students, loading } = this.state;
+    const { students, type, loading } = this.state;
 
     return (
       <div>
@@ -61,11 +51,11 @@ export class Students extends Component {
           <div onClick={this.courseChangeToCurrentPhd} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'current_phd' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
             Current PhD Students
           </div>
-          <div onClick={this.courseChangeToMsc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'msc' ? "bg-danger text-light" : "text-danger"}`} style={{ cursor: 'pointer' }}>
+          <div onClick={this.courseChangeToMsc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'msc' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
             MSc Students
           </div>
-          <div onClick={this.courseChangeToPostDoc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'post_doc' ? "bg-danger text-light" : "text-danger"}`} style={{ cursor: 'pointer' }}>
-            Postdoc Students
+          <div onClick={this.courseChangeToPostDoc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'post_doc' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
+            Postdoc Fellow
           </div>
         </div>
 
@@ -80,32 +70,28 @@ export class Students extends Component {
             <table className="table table-borderless">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
-                  {type === 'post_doc' ? (
-                    <>
-                      <th scope="col">Funding Agency</th>
-                      <th scope="col">Year</th>
-                    </>
-                  ) : (
+                  <th scope="col">Student</th>
+                  {type === 'post_doc' && <th scope="col">Funding Agency</th>}
+                  {type === 'post_doc' && <th scope="col">Year</th>}
+                  {type !== 'post_doc' && (
                     <th scope="col">
-                      {type === 'msc'
-                        ? 'Title of Project'
-                        : 'Title of Thesis'}
+                      {type === 'msc' ? 'Title of Project' : 'Title of Thesis'}
                     </th>
                   )}
                 </tr>
               </thead>
               <tbody>
-                {students.map((i, index) => (
+                {students.map((student, index) => (
                   <tr key={index}>
-                    <td>{i.Name}</td>
-                    {type === 'post_doc' ? (
+                    <td>{student.Name || 'N/A'}</td>
+                    {type === 'post_doc' && (
                       <>
-                        <td>{i["Funding Agency"] || 'N/A'}</td>
-                        <td>{i.Year || 'N/A'}</td>
+                        <td>{student["Funding Agency"] || 'N/A'}</td>
+                        <td>{student["Year"] || 'N/A'}</td>
                       </>
-                    ) : (
-                      <td>{i.Thesis || 'N/A'}</td>
+                    )}
+                    {type !== 'post_doc' && (
+                      <td>{student.Thesis || student.Project || 'N/A'}</td>
                     )}
                   </tr>
                 ))}
@@ -120,7 +106,7 @@ export class Students extends Component {
           )}
         </div>
       </div>
-    )
+    );
   }
 }
 
