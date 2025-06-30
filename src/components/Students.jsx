@@ -13,15 +13,8 @@ export class Students extends Component {
     };
   }
 
-  // Normalize keys to prevent whitespace issues (especially NBSP)
   cleanKeys = (obj) =>
-    Object.fromEntries(
-      Object.entries(obj).map(([k, v]) => {
-        const cleanKey = k.replace(/\u00A0/g, ' ').trim(); // remove NBSP and trim
-        const cleanValue = typeof v === 'string' ? v.trim() : v;
-        return [cleanKey, cleanValue];
-      })
-    );
+    Object.fromEntries(Object.entries(obj).map(([k, v]) => [k.trim(), v]));
 
   async fetchStudents(page, type) {
     this.setState({ type, loading: true, students: [] });
@@ -29,6 +22,7 @@ export class Students extends Component {
     try {
       const response = await axios.get(url);
       const cleanedData = response.data.data.map(this.cleanKeys);
+      console.log(`🔍 Loaded data for ${type}:`, cleanedData); // Debug log
       this.setState({ students: cleanedData, loading: false });
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -43,7 +37,7 @@ export class Students extends Component {
   courseChangeToPhd = () => this.fetchStudents('students', 'phd');
   courseChangeToCurrentPhd = () => this.fetchStudents('Current_phd', 'current_phd');
   courseChangeToMsc = () => this.fetchStudents('msc', 'msc');
-  courseChangeToPostDoc = () => this.fetchStudents('post_doc', 'post_doc');
+  courseChangeToPostDoc = () => this.fetchStudents('Post_doc_fellow', 'post_doc'); // ✅ use correct tab name
 
   render() {
     const { students, type, loading } = this.state;
@@ -62,7 +56,7 @@ export class Students extends Component {
             MSc Students
           </div>
           <div onClick={this.courseChangeToPostDoc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'post_doc' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
-            Post‑doctoral Fellow
+            Post‑doctoral Fellows
           </div>
         </div>
 
