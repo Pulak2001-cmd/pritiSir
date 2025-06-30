@@ -22,7 +22,6 @@ export class Students extends Component {
     try {
       const response = await axios.get(url);
       const cleanedData = response.data.data.map(this.cleanKeys);
-      console.log(`🔍 Loaded data for ${type}:`, cleanedData); // Debug log
       this.setState({ students: cleanedData, loading: false });
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -37,7 +36,7 @@ export class Students extends Component {
   courseChangeToPhd = () => this.fetchStudents('students', 'phd');
   courseChangeToCurrentPhd = () => this.fetchStudents('Current_phd', 'current_phd');
   courseChangeToMsc = () => this.fetchStudents('msc', 'msc');
-  courseChangeToPostDoc = () => this.fetchStudents('Post_doc_fellow', 'post_doc'); // ✅ use correct tab name
+  courseChangeToPostDoc = () => this.fetchStudents('Post_doc_fellow', 'post_doc'); // ✅ correct tab name
 
   render() {
     const { students, type, loading } = this.state;
@@ -72,10 +71,10 @@ export class Students extends Component {
               <thead>
                 <tr>
                   <th>Name</th>
-                  {type === 'post_doc' && <th>Name</th>}
                   {type === 'post_doc' && <th>Designation</th>}
                   {type === 'post_doc' && <th>Funding Agency</th>}
                   {type === 'post_doc' && <th>Year</th>}
+                  {type !== 'post_doc' && (
                     <th>{type === 'msc' ? 'Title of Project' : 'Title of Thesis'}</th>
                   )}
                 </tr>
@@ -84,10 +83,12 @@ export class Students extends Component {
                 {students.map((i, idx) => (
                   <tr key={idx}>
                     <td>{i.Name || 'N/A'}</td>
-                    <td>{i.Designation || 'N/A'}</td>
-                    <td>{i["Funding Agency"] || 'N/A'}</td>
-                    <td>{i.Year || 'N/A'}</td>
-                     </>
+                    {type === 'post_doc' ? (
+                      <>
+                        <td>{i.Designation || 'N/A'}</td>
+                        <td>{i["Funding Agency"] || 'N/A'}</td>
+                        <td>{i.Year || 'N/A'}</td>
+                      </>
                     ) : (
                       <td>{i.Thesis || 'N/A'}</td>
                     )}
