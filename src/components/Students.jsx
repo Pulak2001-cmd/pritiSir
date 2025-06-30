@@ -36,7 +36,7 @@ export class Students extends Component {
   courseChangeToPhd = () => this.fetchStudents('students', 'phd');
   courseChangeToCurrentPhd = () => this.fetchStudents('Current_phd', 'current_phd');
   courseChangeToMsc = () => this.fetchStudents('msc', 'msc');
-  courseChangeToPostDoc = () => this.fetchStudents('Post_doc_fellow', 'post_doc'); // ✅ correct tab name
+  courseChangeToPostDoc = () => this.fetchStudents('Post_doc_fellow', 'post_doc');
 
   render() {
     const { students, type, loading } = this.state;
@@ -63,39 +63,40 @@ export class Students extends Component {
           {loading && (
             <div className="loader-container">
               <div className="spinner"></div>
+              <div className="loader-text">Fetching students records, please wait...</div>
             </div>
           )}
 
           {!loading && students.length > 0 && (
-            <table className="table table-borderless">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  {type === 'post_doc' && <th>Designation</th>}
-                  {type === 'post_doc' && <th>Funding Agency</th>}
-                  {type === 'post_doc' && <th>Year</th>}
-                  {type !== 'post_doc' && (
-                    <th>{type === 'msc' ? 'Title of Project' : 'Title of Thesis'}</th>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {students.map((i, idx) => (
-                  <tr key={idx}>
-                    <td>{i.Name || 'N/A'}</td>
-                    {type === 'post_doc' ? (
+            <>
+              <div className="section-title">
+                {type === 'phd' && 'Awarded PhD Students'}
+                {type === 'current_phd' && 'Current PhD Students'}
+                {type === 'msc' && 'MSc Students'}
+                {type === 'post_doc' && 'Post-doctoral Fellows'}
+              </div>
+
+              <div className="student-grid">
+                {students.map((student, idx) => (
+                  <div className="student-card" key={idx}>
+                    <div className="student-name">{student.Name || 'N/A'}</div>
+                    {type === 'post_doc' && (
                       <>
-                        <td>{i.Designation || 'N/A'}</td>
-                        <td>{i["Funding Agency"] || 'N/A'}</td>
-                        <td>{i.Year || 'N/A'}</td>
+                        <div className="student-detail">Designation: {student.Designation || 'N/A'}</div>
+                        <div className="student-detail">Funding: {student["Funding Agency"] || 'N/A'}</div>
+                        <div className="student-detail">Year: {student.Year || 'N/A'}</div>
                       </>
-                    ) : (
-                      <td>{i.Thesis || 'N/A'}</td>
                     )}
-                  </tr>
+                    {type !== 'post_doc' && (
+                      <div className="student-detail">
+                        {type === 'msc' ? 'Project: ' : 'Thesis: '}
+                        {student.Thesis || 'N/A'}
+                      </div>
+                    )}
+                  </div>
                 ))}
-              </tbody>
-            </table>
+              </div>
+            </>
           )}
 
           {!loading && students.length === 0 && (
