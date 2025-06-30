@@ -68,34 +68,35 @@ export class Students extends Component {
 
           {!loading && students.length > 0 && (
             <table className="table table-borderless">
-              <thead>
-                <tr>
-                  <th scope="col">Student</th>
-                  {type === 'post_doc' && <th scope="col">Funding Agency</th>}
-                  {type === 'post_doc' && <th scope="col">Year</th>}
-                  {type !== 'post_doc' && (
-                    <th scope="col">
-                      {type === 'msc' ? 'Title of Project' : 'Title of Thesis'}
-                    </th>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {students.map((student, index) => (
-                  <tr key={index}>
-                    <td>{student.Name || 'N/A'}</td>
-                    {type === 'post_doc' && (
-                      <>
-                        <td>{student["Funding Agency"] || 'N/A'}</td>
-                        <td>{student["Year"] || 'N/A'}</td>
-                      </>
-                    )}
-                    {type !== 'post_doc' && (
-                      <td>{student.Thesis || student.Project || 'N/A'}</td>
-                    )}
-                  </tr>
-                ))}
-              </tbody>
+             <thead>
+  <tr>
+    <th>Name</th>
+    {type === 'post_doc' && <th>Post‑doctoral Fellow</th>}
+    {type === 'post_doc' && <th>Funding Agency</th>}
+    {type === 'post_doc' && <th>Year</th>}
+    {type !== 'post_doc' && (
+      <th>{type === 'msc' ? 'Title of Project' : 'Title of Thesis'}</th>
+    )}
+  </tr>
+</thead>
+
+<tbody>
+  {students.map((i, idx) => (
+    <tr key={idx}>
+      <td>{i.Name || 'N/A'}</td>
+      {type === 'post_doc' ? (
+        <>
+          <td>{i.Name || 'N/A'}</td>
+          <td>{i["Funding Agency"] || 'N/A'}</td>
+          <td>{i.Year || 'N/A'}</td>
+        </>
+      ) : (
+        <td>{i.Thesis || 'N/A'}</td>
+      )}
+    </tr>
+  ))}
+</tbody>
+
             </table>
           )}
 
