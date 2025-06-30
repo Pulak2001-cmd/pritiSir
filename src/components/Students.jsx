@@ -72,9 +72,10 @@ export class Students extends Component {
               <thead>
                 <tr>
                   <th>Name</th>
+                  {type === 'post_doc' && <th>Name</th>}
+                  {type === 'post_doc' && <th>Designation</th>}
                   {type === 'post_doc' && <th>Funding Agency</th>}
                   {type === 'post_doc' && <th>Year</th>}
-                  {type !== 'post_doc' && (
                     <th>{type === 'msc' ? 'Title of Project' : 'Title of Thesis'}</th>
                   )}
                 </tr>
@@ -83,11 +84,10 @@ export class Students extends Component {
                 {students.map((i, idx) => (
                   <tr key={idx}>
                     <td>{i.Name || 'N/A'}</td>
-                    {type === 'post_doc' ? (
-                      <>
-                        <td>{i["Funding Agency"] || 'N/A'}</td>
-                        <td>{i.Year || 'N/A'}</td>
-                      </>
+                    <td>{i.Designation || 'N/A'}</td>
+                    <td>{i["Funding Agency"] || 'N/A'}</td>
+                    <td>{i.Year || 'N/A'}</td>
+                     </>
                     ) : (
                       <td>{i.Thesis || 'N/A'}</td>
                     )}
