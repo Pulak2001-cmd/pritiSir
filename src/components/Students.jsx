@@ -14,7 +14,9 @@ export class Students extends Component {
   }
 
   cleanKeys = (obj) =>
-    Object.fromEntries(Object.entries(obj).map(([k, v]) => [k.trim(), v]));
+    Object.fromEntries(
+      Object.entries(obj).map(([k, v]) => [k.trim(), typeof v === 'string' ? v.trim() : v])
+    );
 
   async fetchStudents(page, type) {
     this.setState({ type, loading: true, students: [] });
@@ -55,7 +57,7 @@ export class Students extends Component {
             MSc Students
           </div>
           <div onClick={this.courseChangeToPostDoc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'post_doc' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
-            Postdoc Fellow
+            Post-doctoral Fellows
           </div>
         </div>
 
@@ -68,35 +70,32 @@ export class Students extends Component {
 
           {!loading && students.length > 0 && (
             <table className="table table-borderless">
-             <thead>
-  <tr>
-    <th>Name</th>
-    {type === 'post_doc' && <th>Post‑doctoral Fellow</th>}
-    {type === 'post_doc' && <th>Funding Agency</th>}
-    {type === 'post_doc' && <th>Year</th>}
-    {type !== 'post_doc' && (
-      <th>{type === 'msc' ? 'Title of Project' : 'Title of Thesis'}</th>
-    )}
-  </tr>
-</thead>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  {type === 'post_doc' && <th>Funding Agency</th>}
+                  {type === 'post_doc' && <th>Year</th>}
+                  {type !== 'post_doc' && (
+                    <th>{type === 'msc' ? 'Title of Project' : 'Title of Thesis'}</th>
+                  )}
+                </tr>
+              </thead>
 
-<tbody>
-  {students.map((i, idx) => (
-    <tr key={idx}>
-      <td>{i.Name || 'N/A'}</td>
-      {type === 'post_doc' ? (
-        <>
-          <td>{i.Name || 'N/A'}</td>
-          <td>{i["Funding Agency"] || 'N/A'}</td>
-          <td>{i.Year || 'N/A'}</td>
-        </>
-      ) : (
-        <td>{i.Thesis || 'N/A'}</td>
-      )}
-    </tr>
-  ))}
-</tbody>
-
+              <tbody>
+                {students.map((i, idx) => (
+                  <tr key={idx}>
+                    <td>{i.Name || 'N/A'}</td>
+                    {type === 'post_doc' ? (
+                      <>
+                        <td>{i["Funding Agency"] || 'N/A'}</td>
+                        <td>{i["Year"] || 'N/A'}</td>
+                      </>
+                    ) : (
+                      <td>{i.Thesis || 'N/A'}</td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
             </table>
           )}
 
