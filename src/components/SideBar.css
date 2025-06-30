@@ -1,6 +1,31 @@
+.sidebar {
+  min-height: 100vh;
+  width: 100%;
+}
+
 @media only screen and (min-width: 768px) {
-    .sidebar{
-        height: 100%;
-        min-height: 100vh;
-    }
+  .sidebar {
+    height: 100%;
+    min-height: 100vh;
+    width: 250px;
+  }
+}
+
+.sidebar-item {
+  color: #fff;
+  padding: 10px;
+  border-bottom: 0.5px solid #ccc;
+  cursor: pointer;
+  font-weight: normal;
+  transition: background 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background-color: #343a40;
+}
+
+.active-link {
+  font-weight: bold;
+  background-color: #dc3545;
+  color: white !important;
 }
