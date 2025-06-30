@@ -21,12 +21,13 @@ export class Publications extends Component {
       <div>
         <Heading title="Publications" />
         <div className="m-lg-5 m-2 d-flex flex-column">
-          {this.state.publications.length === 0 && (
-            <div className="loader-container">
-              <div className="spinner"></div>
-            </div>
-          )}
-          {this.state.publications.length !== 0 && (
+         {this.state.publications.length === 0 && (
+         <div className="loader-container">
+        <div className="spinner"></div>
+      <div className="loader-text">Fetching publications, please wait...</div>
+      </div>
+      )}
+    {this.state.publications.length !== 0 && (
           <div>
           <h4>Publications</h4>
           <table className="table table-borderless">
