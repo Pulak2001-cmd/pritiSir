@@ -13,9 +13,14 @@ export class Students extends Component {
     };
   }
 
+  // Normalize keys to prevent whitespace issues (especially NBSP)
   cleanKeys = (obj) =>
     Object.fromEntries(
-      Object.entries(obj).map(([k, v]) => [k.trim(), typeof v === 'string' ? v.trim() : v])
+      Object.entries(obj).map(([k, v]) => {
+        const cleanKey = k.replace(/\u00A0/g, ' ').trim(); // remove NBSP and trim
+        const cleanValue = typeof v === 'string' ? v.trim() : v;
+        return [cleanKey, cleanValue];
+      })
     );
 
   async fetchStudents(page, type) {
@@ -57,7 +62,7 @@ export class Students extends Component {
             MSc Students
           </div>
           <div onClick={this.courseChangeToPostDoc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'post_doc' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
-            Post-doctoral Fellows
+            Post‑doctoral Fellow
           </div>
         </div>
 
@@ -80,7 +85,6 @@ export class Students extends Component {
                   )}
                 </tr>
               </thead>
-
               <tbody>
                 {students.map((i, idx) => (
                   <tr key={idx}>
@@ -88,7 +92,7 @@ export class Students extends Component {
                     {type === 'post_doc' ? (
                       <>
                         <td>{i["Funding Agency"] || 'N/A'}</td>
-                        <td>{i["Year"] || 'N/A'}</td>
+                        <td>{i.Year || 'N/A'}</td>
                       </>
                     ) : (
                       <td>{i.Thesis || 'N/A'}</td>
