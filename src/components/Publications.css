@@ -1,3 +1,4 @@
+/* Full-screen loading overlay */
 .loader-container {
   position: fixed;
   top: 0;
@@ -10,33 +11,41 @@
   background: rgba(255, 255, 255, 0.85);
   z-index: 9999;
   flex-direction: column;
+  transition: opacity 0.3s ease-in-out;
 }
 
+/* Circular rotating spinner */
 .spinner {
-  width: 60px;
-  height: 60px;
-  border: 6px solid rgba(61, 90, 241, 0.2);
+  width: 4rem;
+  height: 4rem;
+  border: 0.4rem solid rgba(61, 90, 241, 0.2);
   border-top-color: #3d5af1;
   border-radius: 50%;
   animation: spin-anim 0.8s ease-in-out infinite;
   box-shadow: 0 0 20px rgba(61, 90, 241, 0.3);
 }
 
+/* Optional loading text under spinner */
 .loader-text {
-  margin-top: 16px;
-  font-size: 1rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
   color: #3d5af1;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   animation: fadein 1s ease-in-out infinite alternate;
 }
 
+/* Spinner rotation keyframe */
 @keyframes spin-anim {
-  to {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
     transform: rotate(360deg);
   }
 }
 
+/* Fading animation for loader text */
 @keyframes fadein {
   from {
     opacity: 0.4;
