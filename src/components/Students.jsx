@@ -74,44 +74,34 @@ export class Students extends Component {
             </div>
           )}
           {this.state.students.length !== 0 &&
-            <table className="table table-borderless">
-              <thead>
-                <tr>
-                  <th scope="col">Student</th>
-                  <th scope="col">
-                    {this.state.type === 'msc'
-                      ? 'Title of Project'
-                      : this.state.type === 'post_doc'
-                      ? 'Research Topic'
-                      : 'Title of Thesis'}
-                  </th>
-                </tr>
-              <tbody>
-              {this.state.students.map((i, index) => (
-              <tr key={index}>
-              <td>{i.Name}</td>
-              <td>
-              {this.state.type === 'msc'
+  <table className="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">Student</th>
+        <th scope="col">
+          {this.state.type === 'msc'
+            ? 'Title of Project'
+            : this.state.type === 'post_doc'
+            ? 'Research Topic'
+            : 'Title of Thesis'}
+        </th>
+      </tr>
+    </thead> {/* ✅ FIX: Close thead properly */}
+    <tbody>
+      {this.state.students.map((i, index) => (
+        <tr key={index}>
+          <td>{i.Name}</td>
+          <td>
+            {this.state.type === 'msc'
               ? i.Thesis || 'N/A'
               : this.state.type === 'post_doc'
               ? i.Topic || i.Thesis || 'N/A'
               : i.Thesis || 'N/A'}
-              </td>
-              </tr>
-              ))}
-            </tbody>
-
-            </table>
-          }
-          {this.state.students.length === 0 && !this.state.loading &&
-            <div className="text-center mt-3 text-muted">
-              No data available for this category.
-            </div>
-          }
-        </div>
-      </div>
-    )
-  }
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
 }
 
 export default Students;
