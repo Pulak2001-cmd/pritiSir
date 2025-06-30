@@ -10,7 +10,7 @@ export class Students extends Component {
       students: [],
       type: 'phd',
       loading: false,
-    }
+    };
   }
 
   async componentDidMount() {
@@ -49,59 +49,67 @@ export class Students extends Component {
   }
 
   render() {
+    const { type, students, loading } = this.state;
+    const titleColumnLabel =
+      type === 'msc'
+        ? 'Title of Project'
+        : type === 'post_doc'
+        ? 'Research Topic'
+        : 'Title of Thesis';
+
     return (
       <div>
         <Heading title="Students" />
         <div className="d-flex flex-row justify-content-around m-3 flex-wrap">
-          <div onClick={this.courseChangeToPhd} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${this.state.type === 'phd' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
+          <div onClick={this.courseChangeToPhd} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'phd' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
             Awarded PhD Students
           </div>
-          <div onClick={this.courseChangeToCurrentPhd} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${this.state.type === 'current_phd' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
+          <div onClick={this.courseChangeToCurrentPhd} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'current_phd' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
             Current PhD Students
           </div>
-          <div onClick={this.courseChangeToMsc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${this.state.type === 'msc' ? "bg-danger text-light" : "text-danger"}`} style={{ cursor: 'pointer' }}>
+          <div onClick={this.courseChangeToMsc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'msc' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
             MSc Students
           </div>
-          <div onClick={this.courseChangeToPostDoc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${this.state.type === 'post_doc' ? "bg-danger text-light" : "text-danger"}`} style={{ cursor: 'pointer' }}>
+          <div onClick={this.courseChangeToPostDoc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'post_doc' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
             Postdoc Students
           </div>
         </div>
 
         <div className="m-5 d-flex flex-column">
-          {this.state.loading && (
+          {loading && (
             <div className="loader-container">
               <div className="spinner"></div>
             </div>
           )}
-          {this.state.students.length !== 0 &&
-  <table className="table table-borderless">
-    <thead>
-      <tr>
-        <th scope="col">Student</th>
-        <th scope="col">
-          {this.state.type === 'msc'
-            ? 'Title of Project'
-            : this.state.type === 'post_doc'
-            ? 'Research Topic'
-            : 'Title of Thesis'}
-        </th>
-      </tr>
-    </thead> {/* ✅ FIX: Close thead properly */}
-    <tbody>
-      {this.state.students.map((i, index) => (
-        <tr key={index}>
-          <td>{i.Name}</td>
-          <td>
-            {this.state.type === 'msc'
-              ? i.Thesis || 'N/A'
-              : this.state.type === 'post_doc'
-              ? i.Topic || i.Thesis || 'N/A'
-              : i.Thesis || 'N/A'}
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+          {!loading && students.length > 0 && (
+            <table className="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Student</th>
+                  <th scope="col">{titleColumnLabel}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {students.map((i, index) => (
+                  <tr key={index}>
+                    <td>{i.Name}</td>
+                    <td>
+                      {type === 'post_doc'
+                        ? i.Topic || i.Thesis || 'N/A'
+                        : i.Thesis || 'N/A'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+          {!loading && students.length === 0 && (
+            <div className="text-center text-muted">No data available for this category.</div>
+          )}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Students;
