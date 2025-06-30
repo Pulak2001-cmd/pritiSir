@@ -71,7 +71,7 @@ export class Students extends Component {
             MSc Students
           </div>
           <div onClick={this.courseChangeToPostDoc} className={`col-3 text-center border border-1 border-danger rounded-2 m-2 p-2 ${type === 'post_doc' ? "bg-danger text-light" : 'text-danger'}`} style={{ cursor: 'pointer' }}>
-            Postdoc Students
+            Postdoctoral Fellow
           </div>
         </div>
 
