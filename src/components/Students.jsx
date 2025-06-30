@@ -86,21 +86,21 @@ export class Students extends Component {
                       : 'Title of Thesis'}
                   </th>
                 </tr>
-              </thead>
               <tbody>
-                {this.state.students.map((i, index) => (
-                  <tr key={index}>
-                    <td>{i.Name}</td>
-                    <td>
-                      {this.state.type === 'msc'
-                        ? i.Project
-                        : this.state.type === 'post_doc'
-                        ? i.Topic
-                        : i.Thesis}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+              {this.state.students.map((i, index) => (
+              <tr key={index}>
+              <td>{i.Name}</td>
+              <td>
+              {this.state.type === 'msc'
+              ? i.Thesis || 'N/A'
+              : this.state.type === 'post_doc'
+              ? i.Topic || i.Thesis || 'N/A'
+              : i.Thesis || 'N/A'}
+              </td>
+              </tr>
+              ))}
+            </tbody>
+
             </table>
           }
           {this.state.students.length === 0 && !this.state.loading &&
