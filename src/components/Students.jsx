@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Heading from './Heading';
 import axios from 'axios';
-import './Students.css';
+import './Student.css';
 
 export class Students extends Component {
   constructor(props) {
