@@ -21,7 +21,7 @@ export class Home extends Component {
               </p>
               <p>
                 <a href="https://www.sciencedirect.com/journal/mathematical-biosciences" target="_blank" rel="noopener noreferrer">
-                  Editorial Board Member: Mathematical Biosciences
+                  Associate Editor: Mathematical Biosciences (Elsevier)
                 </a>
               </p>
             </div>
@@ -32,7 +32,8 @@ export class Home extends Component {
             <h2>Professional Experience</h2>
             <ul>
               <li className="m-1">Lecturer in Mathematics (2001–2006), Darjeeling Govt. College, W.B.</li>
-              <li className="m-1">Senior Lecturer (2006–2009), Barasat Govt. College, Kolkata</li>
+              <li className="m-1">Senior Lecturer (2006–2008), Barasat Govt. College, Kolkata</li>
+              <li className="m-1">Senior Lecturer (2008–2009), Jadavpur University, Kolkata</li>
               <li className="m-1">Reader (2009–2012), Jadavpur University</li>
               <li className="m-1">Associate Professor (2012–2015), Jadavpur University</li>
               <li className="m-1">Professor (2015–Present), Jadavpur University</li>
